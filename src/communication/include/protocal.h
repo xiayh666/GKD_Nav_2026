@@ -20,6 +20,7 @@ struct ReceiveNavigationInfo
     float yaw;
     float hp;
     bool start;
+    bool auto_aim_captured;
 } __attribute__((packed));
 
 struct SendNavigationInfo
@@ -28,6 +29,7 @@ struct SendNavigationInfo
     float vx;
     float vy;
     int wz;
+    // bool initialised;
 
     ROBOT_MODE robot_mode;
     int enable_auto_aim;

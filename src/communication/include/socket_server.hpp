@@ -10,7 +10,7 @@
 #include <thread>
 
 template <typename T>
-class socket_server
+class SocketServer
 {
 private:
     int sockfd;
@@ -38,7 +38,7 @@ private:
     }
 
 public:
-    socket_server(int64_t port_num, const std::function<void(const T&)>& f) : Fcallback(f), thread(&socket_server<T>::server_task, this)
+    SocketServer(int64_t port_num, const std::function<void(const T&)>& f) : Fcallback(f), thread(&SocketServer<T>::server_task, this)
     {
         printf("start socket server\n");
         sockfd = socket(AF_INET, SOCK_DGRAM, 0);

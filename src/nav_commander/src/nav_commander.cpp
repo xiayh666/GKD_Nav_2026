@@ -83,9 +83,14 @@ private:
     home_pose_.pose.position.y = 0.0;
     home_pose_.pose.orientation.w = 1.0;
 
+    // work_goal_pose_.header.frame_id = "map";
+    // work_goal_pose_.pose.position.x = 1.0;
+    // work_goal_pose_.pose.position.y = 4.8;
+    // work_goal_pose_.pose.orientation.w = 1.0;
+
     work_goal_pose_.header.frame_id = "map";
-    work_goal_pose_.pose.position.x = 1.0;
-    work_goal_pose_.pose.position.y = 4.8;
+    work_goal_pose_.pose.position.x = 1.6;
+    work_goal_pose_.pose.position.y = 3.6;
     work_goal_pose_.pose.orientation.w = 1.0;
   }
 

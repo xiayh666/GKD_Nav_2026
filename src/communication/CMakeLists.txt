@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.8)
 project(communication)
-set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_EXPORT_COMPILE_COMANDS on)
+
+
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
@@ -9,6 +12,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 find_package(PCL REQUIRED)
 
 if(BUILD_TESTING)
@@ -25,8 +29,6 @@ endif()
 
 file (
   GLOB SOURCES
-  "src/control.cpp",
-  "src/rotate_fix.cpp"
 )
 
 
@@ -38,7 +40,7 @@ include_directories(
 add_executable(communicate src/communicate.cpp ${SOURCES})
 
 
-ament_target_dependencies(communicate rclcpp geometry_msgs PCL)
+ament_target_dependencies(communicate rclcpp geometry_msgs PCL nav_msgs)
 
 
 install(

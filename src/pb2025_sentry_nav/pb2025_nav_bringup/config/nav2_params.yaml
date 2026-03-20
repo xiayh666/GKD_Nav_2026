@@ -182,8 +182,8 @@ pointcloud_to_laserscan:
   ros__parameters:
     use_sim_time: false
     target_frame: base_footprint
-    min_height: -10
-    max_height: 6.0
+    min_height: -10.0
+    max_height: 10.0
     min_intensity: 0.1
     max_intensity: 2.0
     angle_min: -3.1415926                   # -M_PI/2
@@ -460,8 +460,8 @@ controller_server:
       use_rotate_to_heading_treshold: 0.1
       min_approach_linear_velocity: 0.5
       approach_velocity_scaling_dist: 1.0
-      v_linear_min: -2.0
-      v_linear_max: 2.0
+      v_linear_min: -0.5
+      v_linear_max: 0.5
       v_angular_min: -3.0
       v_angular_max: 3.0
       curvature_min: 0.4                                # 低曲率阈值，低于此值不减速。
@@ -502,8 +502,8 @@ local_costmap:
         unknown_threshold: 5
         z_resolution: 0.05
         z_voxels: 16
-        min_obstacle_height: -5.0
-        max_obstacle_height: 5.0
+        min_obstacle_height: -10.0
+        max_obstacle_height: 10.0
         min_obstacle_intensity: 0.1
         max_obstacle_intensity: 2.0
         observation_sources: terrain_map
@@ -513,8 +513,8 @@ local_costmap:
           # It doesn't need to start with '/'
           # topic: <robot_namespace>/terrain_map
           topic: red_standard_robot1/terrain_map
-          min_obstacle_height: -0.5
-          max_obstacle_height: 5.0
+          min_obstacle_height: -10.0
+          max_obstacle_height: 10.0
           obstacle_max_range: 5.0
           obstacle_min_range: 0.2
       static_layer:
@@ -554,8 +554,8 @@ global_costmap:
         unknown_threshold: 5
         z_resolution: 0.05
         z_voxels: 16
-        min_obstacle_height: -0.5
-        max_obstacle_height: 5.0
+        min_obstacle_height: -10.0
+        max_obstacle_height: 10.0
         min_obstacle_intensity: 0.1
         max_obstacle_intensity: 2.0
         observation_sources: terrain_map_ext
