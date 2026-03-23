@@ -207,7 +207,6 @@ private:
         goal_msg.pose = pose;
 
         auto send_goal_options = rclcpp_action::Client<NavigateToPose>::SendGoalOptions();
-        // 如果需要，你可以在这里配置 result_callback, goal_response_callback 等
         
         nav_client_->async_send_goal(goal_msg, send_goal_options);
     }

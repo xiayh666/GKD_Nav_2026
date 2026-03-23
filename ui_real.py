@@ -53,8 +53,7 @@ def on_navigate():
         return list(itertools.chain(*[i.split(",") for i in str.split(" ")]))
 
     x, y = split(navigate_pos_input.get().strip())
-    os.system('ros2 action send_goal /red_standard_robot1/navigate_to_pose nav2_msgs/action/NavigateToPose "{pose: {header: {frame_id: map}, pose: {position: {x: '+x+', y: '+y+'}}}}" --feedback')
-
+    os.system('ros2 topic pub --once /red_standard_robot1/goal_pose_raw geometry_msgs/msg/PoseStamped "{header: {frame_id: \'map\'}, pose: {position: {x: ' + str(x) + ', y: ' + str(y) + ', z: 0.0}, orientation: {w: 1.0}}}"')
 def on_run():
     selected_world = f"{selected_option.get()}"
     os.system(f"ros2 launch pb2025_nav_bringup rm_navigation_reality_launch.py \

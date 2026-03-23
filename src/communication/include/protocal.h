@@ -19,7 +19,7 @@ struct ReceiveNavigationInfo
     uint8_t header;
     float yaw;
     float hp;
-    bool start;
+    int game_progress;
     bool auto_aim_captured;
 } __attribute__((packed));
 

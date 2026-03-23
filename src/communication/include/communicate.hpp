@@ -61,7 +61,12 @@ private:
   std::atomic<bool> initialised_ = false;
   std::atomic<bool> respawn_init_ = false;
   rclcpp::TimerBase::SharedPtr respawn_timer_;
+  rclcpp::TimerBase::SharedPtr startup_timer_;
   static std::atomic<bool> auto_aim_captured_;
+  static std::atomic<int> game_progress_;
+  static std::atomic<bool> startup_finished_;
+  static std::atomic<bool> startup_timer_created_;
+
   
 
 
@@ -70,6 +75,7 @@ private:
   void check_map_callback(const nav_msgs::msg::OccupancyGrid msg);
   void check_zero();
   void send_control_task();
+  void startup();
 
 
 };
